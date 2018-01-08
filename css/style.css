@@ -1,0 +1,57 @@
+#carousel {
+	width: 400px;
+	height: 400px;
+	border: 1px solid black;
+	overflow: hidden;
+	margin: auto;
+}
+
+ul {
+	list-style: none;
+	width: 2000px;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+	width: 400px;
+	float: left;
+}
+
+#goLeft {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	padding-left: 30vw;
+}
+
+
+#goRight {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	padding-right: 30vw;
+}
+
+.pagination {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+.change-slide {
+
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1px solid black;
+	margin: 0 10px;
+	float: left;
+	display: block;
+}

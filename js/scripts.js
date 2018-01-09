@@ -3,10 +3,10 @@ $(function(){
 	var carouselList = $("#carousel ul");
 	
 	
-	
+	var intervalId;
 
 	function setDefaultInterval() {
-		var intervalId;
+		
 		intervalId = setInterval(changeSlide, 3000); 
 		
 	};
@@ -44,16 +44,18 @@ $(function(){
 	};
 
 	$('#goRight').click(function(){
-			
+		
+		stopInterval();	
 	    changeSlide();
-	    stopInterval();
+	    setDefaultInterval()
 	    
 	  });
 
 	$('#goLeft').click(function(){
-			
+		
+		stopInterval();	
 	    changeSlideBack();
-	    stopInterval();
+	    setDefaultInterval()
 	    
 	});
 

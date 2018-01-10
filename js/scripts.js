@@ -3,7 +3,7 @@ $(function(){
 	var carouselList = $("#carousel ul");
 	
 	
-	var intervalId;
+	var intervalId=0;
 
 	function setDefaultInterval() {
 		
@@ -27,20 +27,20 @@ $(function(){
 			changePagination();
 		};
 	};
-	
-	function changeSlideBack(){
 
-		changePagination();
-	    carouselList.animate({'marginLeft':0}, 500, moveFirstSlideBack);
-	
-
-		function moveFirstSlideBack(){
+	function moveFirstSlideBack(){
 		    var firstItem = carouselList.find("li:first");
 		    var lastItem = carouselList.find("li:last");
 		    firstItem.before(lastItem);
 		    carouselList.css({marginLeft:-400});
 		};
-	    
+	
+	function changeSlideBack(){
+		clearInterval(intervalId);
+	    moveFirstSlideBack();
+	    changePagination();
+		carouselList.animate({'marginLeft':0}, 500, setDefaultInterval());
+		   
 	};
 
 	$('#goRight').click(function(){
@@ -55,7 +55,7 @@ $(function(){
 		
 		stopInterval();	
 	    changeSlideBack();
-	    setDefaultInterval()
+	    
 	    
 	});
 
@@ -72,7 +72,7 @@ $(function(){
 		var currentSlideNum = currentSlide.attr('data-slide');
 
 		clickedButton.each(function(index, element) {
-			if ((index + 1) == currentSlideNum) {
+			if ((index + 1 ) == currentSlideNum) {
 				$(element).addClass('active')
 			} else {
 				$(element).removeClass('active');
@@ -80,10 +80,5 @@ $(function(){
 
 		})
 	}
-	
-	
-});
 
-
-
-
+});	
